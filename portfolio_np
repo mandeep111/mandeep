@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mandip Raj Dhakal - Portfolio</title>
 
   <!-- Google Fonts & Icons -->
@@ -10,10 +11,10 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Materialize CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 
   <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/9845093119.js" crossorigin="anonymous"></script>
@@ -24,12 +25,14 @@
       font-family: 'Roboto', sans-serif;
       background-color: #f5f5f5;
     }
+
     .profile-pic {
       width: 120px;
       height: 120px;
       border-radius: 50%;
       border: 3px solid white;
     }
+
     .expertise-badge {
       margin: 4px;
       padding: 8px 12px;
@@ -39,22 +42,27 @@
       font-size: 0.9rem;
       color: #0277bd;
     }
+
     .card {
       display: flex;
       flex-direction: column;
       height: 100%;
     }
+
     .card-content {
       flex-grow: 1;
     }
+
     footer {
       background: #0288d1;
       color: white;
       padding: 15px 0;
     }
+
     main {
       padding: 20px;
     }
+
     @media (min-width: 993px) {
       main {
         margin-left: 300px;
@@ -62,6 +70,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Drawer Navigation -->
@@ -79,11 +88,14 @@
     <li><a href="#interests"><i class="material-icons">favorite</i>My Interests</a></li>
     <li><a href="#experience"><i class="material-icons">work</i>Work Experience</a></li>
     <li><a href="#projects"><i class="material-icons">code</i>Projects</a></li>
-    <li><div class="divider"></div></li>
+    <li>
+      <div class="divider"></div>
+    </li>
     <li><a><strong>Connect</strong></a></li>
     <li>
       <a href="https://github.com/mandeep111" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://www.linkedin.com/in/mandeep-dhakal-4529a7158/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://www.linkedin.com/in/mandeep-dhakal-4529a7158/" target="_blank"><i class="fab fa-linkedin"></i>
+        LinkedIn</a>
       <a href="https://medium.com/@mandeepdhakal11" target="_blank"><i class="fab fa-medium"></i> Medium</a>
       <a href="https://leetcode.com/mandeep369/" target="_blank"><i class="fas fa-code"></i> LeetCode</a>
     </li>
@@ -105,9 +117,14 @@
       <section id="about" class="section animate__animated animate__fadeInUp">
         <h4 class="blue-text text-darken-2">About Me</h4>
         <p>
-          Senior Software Engineer & Team Lead with proven expertise in architecting scalable, cloud-native applications, leading cross-functional teams, and delivering innovative solutions. Specialized in microservices, IoT data processing, cloud platforms, and AI automation. I work with global clients on high-impact projects, from startups to enterprise systems.
+          Senior Software Engineer & Team Lead with proven expertise in architecting scalable, cloud-native
+          applications, leading cross-functional teams, and delivering innovative solutions. Specialized in
+          microservices, IoT data processing, cloud platforms, and AI automation. I work with global clients on
+          high-impact projects, from startups to enterprise systems.
         </p>
-        <a href="https://docs.google.com/document/d/1F35-atQ81smmCIzSMc-qOc97BpUxw782/view" target="_blank" class="btn blue">Download CV</a>
+        <a href="https://docs.google.com/document/d/1F35-atQ81smmCIzSMc-qOc97BpUxw782/view" target="_blank"
+          class="btn blue">Download CV</a>
+        <p> <a href="https://medium.com/@mandeepdhakal11" target="_blank" class="btn blue">Read My Blogs!</a></p>
       </section>
 
       <!-- Expertise -->
@@ -130,10 +147,18 @@
       <section id="interests" class="section animate__animated animate__fadeInUp">
         <h4 class="blue-text text-darken-2">My Interests</h4>
         <div class="row">
-          <div class="col s12 m3 center-align"><i class="material-icons large blue-text">psychology</i><p>Generative AI</p></div>
-          <div class="col s12 m3 center-align"><i class="material-icons large blue-text">code</i><p>Software Development</p></div>
-          <div class="col s12 m3 center-align"><i class="material-icons large blue-text">devices</i><p>Mobile/Web Apps</p></div>
-          <div class="col s12 m3 center-align"><i class="material-icons large blue-text">auto_awesome</i><p>AI Automation</p></div>
+          <div class="col s12 m3 center-align"><i class="material-icons large blue-text">psychology</i>
+            <p>Generative AI</p>
+          </div>
+          <div class="col s12 m3 center-align"><i class="material-icons large blue-text">code</i>
+            <p>Software Development</p>
+          </div>
+          <div class="col s12 m3 center-align"><i class="material-icons large blue-text">devices</i>
+            <p>Mobile/Web Apps</p>
+          </div>
+          <div class="col s12 m3 center-align"><i class="material-icons large blue-text">auto_awesome</i>
+            <p>AI Automation</p>
+          </div>
         </div>
       </section>
 
@@ -148,6 +173,7 @@
             <div class="card">
               <div class="card-content">
                 <span class="card-title">Hydroneo Smart Aquaculture</span>
+                <p class="grey-text"><b>Bangkok, Thailand</b></p>
                 <p class="grey-text">Senior Software Engineer, Team Lead (Apr 2025 – Present)</p>
                 <ul>
                   <li>Architected microservices from monolithic apps.</li>
@@ -162,6 +188,7 @@
             <div class="card">
               <div class="card-content">
                 <span class="card-title">Convergestack Pvt. Ltd.</span>
+                <p class="grey-text"><b>Kathmandu, Nepal</b></p>
                 <p class="grey-text">Software Engineer (2022 – 2025)</p>
                 <ul>
                   <li>Developed REST APIs with Spring & Java.</li>
@@ -176,6 +203,7 @@
             <div class="card">
               <div class="card-content">
                 <span class="card-title">Laconic Cloud ERP</span>
+                <p class="grey-text"><b>Bangkok, Thailand</b></p>
                 <p class="grey-text">R&D Specialist / Senior Software Engineer (2022 – 2023)</p>
                 <ul>
                   <li>Designed & implemented REST APIs in Spring.</li>
@@ -189,49 +217,184 @@
         </div>
       </section>
 
+      <!-- Certifications -->
+      <section id="experience" class="section animate__animated animate__fadeInUp">
+        <h4 class="blue-text text-darken-2">Certifications</h4>
+        <div class="row">
+          <div class="col s12 m6 l4">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">Project: Deep Agents with LangGraph</span>
+                <p class="grey-text"><b>LangChain Academy</b></p>
+                <ul>
+                  <li>Learned how to use LangGraph to build a multi-agent system, then use LangSmith to evaluate its performance.</li>
+                </ul>
+                <div class="card-action">
+                  <a href="https://academy.langchain.com/certificates/oopklozmij" target="_blank">Certificate</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Convergestack -->
+          <div class="col s12 m6 l4">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">Project: Deep Research with LangGraph</span>
+                <p class="grey-text"><b>LangChain Academy</b></p>
+                <ul>
+                  <li>Fundamental characteristics of Deep Agents and how to implement your own Deep Agent for complex, long-running tasks.</li>
+                </ul>
+                <div class="card-action">
+                  <a href="https://academy.langchain.com/certificates/7fch0apf8m" target="_blank">Certificate</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l4">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">Building Ambient Agents with LangGraph</span>
+                <p class="grey-text"><b>LangChain Academy</b></p>
+                <ul>
+                  <li>Fundamentals of LangGraph as you build an email assistant from scratch, and use LangSmith to evaluate its performance.</li>
+                </ul>
+                <div class="card-action">
+                  <a href="https://academy.langchain.com/certificates/baahmvhrsn" target="_blank">Certificate</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Additional roles omitted here for brevity but would follow same structure -->
+        </div>
+      </section>
       <!-- Projects -->
       <section id="projects" class="section animate__animated animate__fadeInUp">
         <h4 class="blue-text text-darken-2">Projects</h4>
+
+        <!-- Row 1 -->
         <div class="row">
-          <div class="col s12 m6 l4">
+          <!-- Spring-Flow -->
+          <div class="col s12 m6">
+            <div class="card hoverable">
+              <div class="card-content">
+                <span class="card-title">Workflow Engine</span>
+                <p>A workflow automation platform like n8n that routes documents across departments. Supports approval,
+                  rejection, rollback, and hash verification for document integrity.</p>
+              </div>
+              <div class="card-action">
+                <a href="https://github.com/mandeep111/workflow-management" target="_blank">GitHub</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ClickUp Clone -->
+          <div class="col s12 m6">
+            <div class="card hoverable">
+              <div class="card-content">
+                <span class="card-title">ClickUp-Like Project Management</span>
+                <p>A project management backend inspired by ClickUp and Trello. Built using Java Spring Boot and Oracle
+                  DB, managing teams, tasks, and projects with JWT-based authentication.</p>
+              </div>
+              <div class="card-action">
+                <a href="https://github.com/mandeep111/custom-jira" target="_blank">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="row">
+          <!-- Attendance System -->
+          <div class="col s12 m6">
+            <div class="card hoverable">
+              <div class="card-content">
+                <span class="card-title">Biometric Attendance System</span>
+                <p>Attendance system using biometric or facial recognition with LINE Messaging integration. Notifies
+                  parents in real-time about student check-ins and check-outs.</p>
+              </div>
+              <div class="card-action">
+                <a href="https://github.com/mandeep111/line-webhook-example" target="_blank">GitHub</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fast Work API -->
+          <div class="col s12 m6">
+            <div class="card hoverable">
+              <div class="card-content">
+                <span class="card-title">Upwork Clone API</span>
+                <p>A minimal Upwork clone where users can post jobs, hire freelancers, and chat in real time using
+                  Supabase. Built with Java Spring Boot, Oracle, and Next.js.</p>
+              </div>
+              <div class="card-action">
+                <a href="https://github.com/mandeep111/fastwork-api" target="_blank">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="row">
+          <!-- Cambridge Education -->
+          <div class="col s12 m6">
             <div class="card hoverable">
               <div class="card-content">
                 <span class="card-title">Cambridge Education</span>
-                <p>Cambridge education birtamode business website.</p>
+                <p>Business website for Cambridge Education, Birtamod. A responsive and professional online presence
+                  highlighting courses, programs, and contact details.</p>
               </div>
               <div class="card-action">
                 <a href="https://cambridgebirtamod.com/" target="_blank">Live Site</a>
               </div>
             </div>
           </div>
-          <div class="col s12 m6 l4">
+
+          <!-- LangChain RAG App -->
+          <div class="col s12 m6">
             <div class="card hoverable">
               <div class="card-content">
                 <span class="card-title">LangChain RAG App</span>
-                <p>AI with domain-specific knowledge using LangChain.</p>
+                <p>An AI-powered retrieval-augmented generation system using LangChain, enabling domain-specific
+                  contextual responses and intelligent document querying.</p>
               </div>
               <div class="card-action">
                 <a href="https://github.com/mandeep111/langchain-rag-app" target="_blank">GitHub</a>
               </div>
             </div>
           </div>
-          <div class="col s12 m6 l4">
+        </div>
+
+        <!-- Row 4 -->
+        <div class="row">
+          <!-- GPT Fine Tuning -->
+          <div class="col s12 m6">
             <div class="card hoverable">
               <div class="card-content">
-                <span class="card-title">Spring Boot Microservices</span>
-                <p>Demo microservices using Spring Boot.</p>
+                <span class="card-title">GPT Fine Tuning</span>
+                <p>Fine-tuning a pre-trained OpenAI model to classify news articles into categories like Business, Tech,
+                  Politics, Sport, and Entertainment.</p>
               </div>
               <div class="card-action">
-                <a href="https://github.com/mandeep111/Spring_Boot_Microservices" target="_blank">GitHub</a>
+                <a href="https://github.com/mandeep111/openai-fine-tuning" target="_blank">Github</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- gRPC Demo -->
+          <div class="col s12 m6">
+            <div class="card hoverable">
+              <div class="card-content">
+                <span class="card-title"> Spring Boot gRPC</span>
+                <p>This project demonstrates a modular microservice setup built with Spring Boot and gRPC.</p>
+              </div>
+              <div class="card-action">
+                <a href="https://github.com/mandeep111/grpc_demo" target="_blank">GitHub</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
-        </div>
       </section>
 
-    </div>
   </main>
 
   <!-- Footer -->
@@ -242,11 +405,12 @@
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       var elems = document.querySelectorAll('.sidenav');
       M.Sidenav.init(elems);
       document.getElementById('year').textContent = new Date().getFullYear();
     });
   </script>
 </body>
+
 </html>
