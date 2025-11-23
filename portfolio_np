@@ -2,1014 +2,1137 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mandip Raj Dhakal - Portfolio</title>
-
-  <!-- Google Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <!-- Materialize CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/9845093119.js" crossorigin="anonymous"></script>
-  <link rel="icon" href="Portfolio/assets/images/profile.jpg" type="image/x-icon">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    /* Animated Background Particles */
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .particle {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      animation: float 20s infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
-    }
-
-    /* Sidenav Enhancements */
-    .sidenav {
-      background: linear-gradient(180deg, #0288d1 0%, #01579b 100%);
-      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .sidenav .user-view {
-      padding: 32px 32px 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .sidenav .user-view::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
-    }
-
-    .profile-pic {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 4px solid white;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: profilePulse 3s ease-in-out infinite;
-    }
-
-    @keyframes profilePulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    .profile-pic:hover {
-      transform: scale(1.1) rotate(5deg);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-    }
-
-    .sidenav li > a {
-      color: rgba(255, 255, 255, 0.9);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .sidenav li > a::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 0;
-      background: rgba(255, 255, 255, 0.1);
-      transition: width 0.3s ease;
-    }
-
-    .sidenav li > a:hover::before {
-      width: 100%;
-    }
-
-    .sidenav li > a:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateX(5px);
-    }
-
-    .sidenav li > a i {
-      color: rgba(255, 255, 255, 0.9);
-      margin-right: 16px;
-    }
-
-    /* Main Content */
-    main {
-      padding: 40px 20px;
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      background: rgba(245, 245, 245, 0.95);
-      backdrop-filter: blur(10px);
-    }
-
-    @media (min-width: 993px) {
-      main {
-        margin-left: 300px;
-      }
-    }
-
-    .container {
-      max-width: 1200px;
-    }
-
-    /* Section Styling */
-    .section {
-      background: white;
-      border-radius: 20px;
-      padding: 40px;
-      margin-bottom: 40px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s ease forwards;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, #0288d1, #01579b, #0288d1);
-      background-size: 200% 100%;
-      animation: gradientSlide 3s ease infinite;
-    }
-
-    @keyframes gradientSlide {
-      0%, 100% { background-position: 0% 0%; }
-      50% { background-position: 100% 0%; }
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .section:nth-child(2) { animation-delay: 0.1s; }
-    .section:nth-child(3) { animation-delay: 0.2s; }
-    .section:nth-child(4) { animation-delay: 0.3s; }
-    .section:nth-child(5) { animation-delay: 0.4s; }
-    .section:nth-child(6) { animation-delay: 0.5s; }
-
-    .section h4 {
-      font-weight: 700;
-      margin-bottom: 30px;
-      position: relative;
-      display: inline-block;
-      padding-bottom: 10px;
-    }
-
-    .section h4::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background: #0288d1;
-      animation: expandWidth 1s ease forwards;
-    }
-
-    @keyframes expandWidth {
-      from { width: 0; }
-      to { width: 60px; }
-    }
-
-    /* Enhanced Cards */
-    .card {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      border-radius: 16px;
-      overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      border: 1px solid rgba(2, 136, 209, 0.1);
-      position: relative;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(2, 136, 209, 0.05) 0%, rgba(1, 87, 155, 0.05) 100%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-12px) scale(1.02);
-      box-shadow: 0 20px 60px rgba(2, 136, 209, 0.3);
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card-content {
-      flex-grow: 1;
-      position: relative;
-      z-index: 1;
-    }
-
-    .card-title {
-      font-weight: 600 !important;
-      color: #01579b !important;
-      font-size: 1.3rem !important;
-      margin-bottom: 12px !important;
-    }
-
-    .card-content ul {
-      padding-left: 20px;
-    }
-
-    .card-content ul li {
-      margin-bottom: 8px;
-      position: relative;
-      padding-left: 10px;
-    }
-
-    .card-content ul li::before {
-      content: '▹';
-      position: absolute;
-      left: -10px;
-      color: #0288d1;
-      font-weight: bold;
-    }
-
-    .card-action {
-      border-top: 1px solid rgba(2, 136, 209, 0.1);
-      background: rgba(2, 136, 209, 0.02);
-      position: relative;
-      z-index: 1;
-    }
-
-    .card-action a {
-      color: #0288d1 !important;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .card-action a::after {
-      content: '→';
-      margin-left: 5px;
-      opacity: 0;
-      transform: translateX(-10px);
-      transition: all 0.3s ease;
-    }
-
-    .card-action a:hover::after {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    /* Expertise Badges */
-    .expertise-badge {
-      margin: 6px;
-      padding: 12px 20px;
-      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-      border-radius: 25px;
-      display: inline-block;
-      font-size: 0.9rem;
-      color: #01579b;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(2, 136, 209, 0.2);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .expertise-badge::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      background: rgba(2, 136, 209, 0.2);
-      transform: translate(-50%, -50%);
-      transition: width 0.6s, height 0.6s;
-    }
-
-    .expertise-badge:hover::before {
-      width: 300px;
-      height: 300px;
-    }
-
-    .expertise-badge:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(2, 136, 209, 0.4);
-    }
-
-    /* Interest Icons */
-    .interest-item {
-      transition: all 0.4s ease;
-      cursor: pointer;
-      padding: 20px;
-      border-radius: 16px;
-    }
-
-    .interest-item:hover {
-      background: linear-gradient(135deg, rgba(2, 136, 209, 0.1) 0%, rgba(1, 87, 155, 0.1) 100%);
-      transform: translateY(-8px);
-    }
-
-    .interest-item i {
-      transition: all 0.4s ease;
-      display: inline-block;
-    }
-
-    .interest-item:hover i {
-      transform: rotateY(360deg) scale(1.2);
-      color: #01579b !important;
-    }
-
-    /* Buttons */
-    .btn {
-      border-radius: 30px;
-      padding: 0 30px;
-      height: 48px;
-      line-height: 48px;
-      box-shadow: 0 6px 20px rgba(2, 136, 209, 0.3);
-      transition: all 0.3s ease;
-      font-weight: 600;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.3);
-      transform: translate(-50%, -50%);
-      transition: width 0.6s, height 0.6s;
-    }
-
-    .btn:hover::before {
-      width: 300px;
-      height: 300px;
-    }
-
-    .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(2, 136, 209, 0.5);
-    }
-
-    /* Footer */
-    footer {
-      background: linear-gradient(135deg, #0288d1 0%, #01579b 100%);
-      color: white;
-      padding: 30px 0;
-      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
-      position: relative;
-      z-index: 1;
-    }
-
-    @media (min-width: 993px) {
-      footer {
-        margin-left: 300px;
-      }
-    }
-
-    /* Mobile Nav */
-    .nav-wrapper {
-      padding: 0 20px;
-    }
-
-    .brand-logo {
-      font-weight: 600;
-      font-size: 1.4rem !important;
-    }
-
-    /* Scroll Animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Loading Animation */
-    @keyframes shimmer {
-      0% { background-position: -1000px 0; }
-      100% { background-position: 1000px 0; }
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      .section {
-        padding: 24px;
-      }
-
-      .section h4 {
-        font-size: 1.6rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandip Raj Dhakal - Portfolio</title>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/9845093119.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="Portfolio/assets/images/profile.jpg" type="image/x-icon">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        /* Sidenav Enhancements */
+        .sidenav {
+            background: linear-gradient(180deg, #0288d1 0%, #01579b 100%);
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidenav .user-view {
+            padding: 32px 32px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidenav .user-view::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: profilePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes profilePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .sidenav li>a {
+            color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidenav li>a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background: rgba(255, 255, 255, 0.1);
+            transition: width 0.3s ease;
+        }
+
+        .sidenav li>a:hover::before {
+            width: 100%;
+        }
+
+        .sidenav li>a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(5px);
+        }
+
+        .sidenav li>a i {
+            color: rgba(255, 255, 255, 0.9);
+            margin-right: 16px;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            background: rgba(245, 245, 245, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        @media (min-width: 993px) {
+            main {
+                margin-left: 300px;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        /* Section Styling */
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #0288d1, #01579b, #0288d1);
+            background-size: 200% 100%;
+            animation: gradientSlide 3s ease infinite;
+        }
+
+        @keyframes gradientSlide {
+
+            0%,
+            100% {
+                background-position: 0% 0%;
+            }
+
+            50% {
+                background-position: 100% 0%;
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .section:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .section:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .section:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        .section:nth-child(6) {
+            animation-delay: 0.5s;
+        }
+
+        .section h4 {
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #0288d1;
+            animation: expandWidth 1s ease forwards;
+        }
+
+        @keyframes expandWidth {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 60px;
+            }
+        }
+
+        /* Enhanced Cards */
+        .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(2, 136, 209, 0.1);
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(2, 136, 209, 0.05) 0%, rgba(1, 87, 155, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(2, 136, 209, 0.3);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-content {
+            flex-grow: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-title {
+            font-weight: 600 !important;
+            color: #01579b !important;
+            font-size: 1.3rem !important;
+            margin-bottom: 12px !important;
+        }
+
+        .card-content ul {
+            padding-left: 20px;
+        }
+
+        .card-content ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .card-content ul li::before {
+            content: '▹';
+            position: absolute;
+            left: -10px;
+            color: #0288d1;
+            font-weight: bold;
+        }
+
+        .card-action {
+            border-top: 1px solid rgba(2, 136, 209, 0.1);
+            background: rgba(2, 136, 209, 0.02);
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-action a {
+            color: #0288d1 !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card-action a::after {
+            content: '→';
+            margin-left: 5px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .card-action a:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Expertise Badges */
+        .expertise-badge {
+            margin: 6px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 0.9rem;
+            color: #01579b;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(2, 136, 209, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-badge::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(2, 136, 209, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .expertise-badge:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .expertise-badge:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(2, 136, 209, 0.4);
+        }
+
+        /* Interest Icons */
+        .interest-item {
+            transition: all 0.4s ease;
+            cursor: pointer;
+            padding: 20px;
+            border-radius: 16px;
+        }
+
+        .interest-item:hover {
+            background: linear-gradient(135deg, rgba(2, 136, 209, 0.1) 0%, rgba(1, 87, 155, 0.1) 100%);
+            transform: translateY(-8px);
+        }
+
+        .interest-item i {
+            transition: all 0.4s ease;
+            display: inline-block;
+        }
+
+        .interest-item:hover i {
+            transform: rotateY(360deg) scale(1.2);
+            color: #01579b !important;
+        }
+
+        /* Buttons */
+        .btn {
+            border-radius: 30px;
+            padding: 0 30px;
+            height: 48px;
+            line-height: 48px;
+            box-shadow: 0 6px 20px rgba(2, 136, 209, 0.3);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(2, 136, 209, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0288d1 0%, #01579b 100%);
+            color: white;
+            padding: 30px 0;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (min-width: 993px) {
+            footer {
+                margin-left: 300px;
+            }
+        }
+
+        /* Mobile Nav */
+        .nav-wrapper {
+            padding: 0 20px;
+        }
+
+        .brand-logo {
+            font-weight: 600;
+            font-size: 1.4rem !important;
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading Animation */
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .section {
+                padding: 24px;
+            }
+
+            .section h4 {
+                font-size: 1.6rem;
+            }
+        }
+
+        .about-section .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .about-section .about-text {
+            flex: 1;
+        }
+
+        .about-section .about-image img {
+            width: 280px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Make it responsive */
+        @media (max-width: 768px) {
+            .about-section .about-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-section .about-image img {
+                width: 500px;
+                height: 350px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- Animated Background Particles -->
-  <div class="particles" id="particles"></div>
+    <!-- Animated Background Particles -->
+    <div class="particles" id="particles"></div>
 
-  <!-- Drawer Navigation -->
-  <ul id="slide-out" class="sidenav sidenav-fixed">
-    <li>
-      <div class="user-view">
-        <div class="background blue"></div>
-        <a href="#"><img class="profile-pic" src="Portfolio/assets/images/profile.jpg" alt="Mandip"></a>
-        <a href="#about"><span class="white-text name">Mandipraj Dhakal</span></a>
-        <a href="mailto:mandeepdhakal11@gmail.com"><span class="white-text email">mandeepdhakal11@gmail.com</span></a>
-      </div>
-    </li>
-    <li><a href="#about"><i class="material-icons">person</i>About Me</a></li>
-    <li><a href="#expertise"><i class="material-icons">star</i>Expertise</a></li>
-    <li><a href="#interests"><i class="material-icons">favorite</i>My Interests</a></li>
-    <li><a href="#experience"><i class="material-icons">work</i>Work Experience</a></li>
-    <li><a href="#projects"><i class="material-icons">code</i>Projects</a></li>
-    <li>
-      <div class="divider"></div>
-    </li>
-    <li><a><strong>Connect</strong></a></li>
-    <li>
-      <a href="https://github.com/mandeep111" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://www.linkedin.com/in/mandeep-dhakal-4529a7158/" target="_blank"><i class="fab fa-linkedin"></i>
-        LinkedIn</a>
-      <a href="https://medium.com/@mandeepdhakal11" target="_blank"><i class="fab fa-medium"></i> Medium</a>
-      <a href="https://leetcode.com/mandeep369/" target="_blank"><i class="fas fa-code"></i> LeetCode</a>
-    </li>
-  </ul>
+    <!-- Drawer Navigation -->
+    <ul id="slide-out" class="sidenav sidenav-fixed">
+        <li>
+            <div class="user-view">
+                <div class="background blue"></div>
+                <a href="#"><img class="profile-pic" src="Portfolio/assets/images/profile.jpg" alt="Mandip"></a>
+                <a href="#about"><span class="white-text name">Mandipraj Dhakal</span></a>
+                <a href="mailto:mandeepdhakal11@gmail.com"><span
+                        class="white-text email">mandeepdhakal11@gmail.com</span></a>
+            </div>
+        </li>
+        <li><a href="#about"><i class="material-icons">person</i>About Me</a></li>
+        <li><a href="#expertise"><i class="material-icons">star</i>Expertise</a></li>
+        <li><a href="#interests"><i class="material-icons">favorite</i>My Interests</a></li>
+        <li><a href="#experience"><i class="material-icons">work</i>Work Experience</a></li>
+        <li><a href="#projects"><i class="material-icons">code</i>Projects</a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a><strong>Connect</strong></a></li>
+        <li>
+            <a href="https://github.com/mandeep111" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/mandeep-dhakal-4529a7158/" target="_blank"><i
+                    class="fab fa-linkedin"></i>
+                LinkedIn</a>
+            <a href="https://medium.com/@mandeepdhakal11" target="_blank"><i class="fab fa-medium"></i> Medium</a>
+            <a href="https://leetcode.com/mandeep369/" target="_blank"><i class="fas fa-code"></i> LeetCode</a>
+        </li>
+    </ul>
 
-  <!-- Top Navbar for Mobile -->
-  <nav class="blue hide-on-large-only">
-    <div class="nav-wrapper">
-      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <span class="brand-logo center">Hi There 👋</span>
-    </div>
-  </nav>
-
-  <!-- Main Content -->
-  <main>
-    <div class="container">
-
-      <!-- About Me -->
-      <section id="about" class="section">
-        <h4 class="blue-text text-darken-2">About Me</h4>
-        <p>
-          Senior Software Engineer & Team Lead with proven expertise in architecting scalable, cloud-native
-          applications, leading cross-functional teams, and delivering innovative solutions. Specialized in
-          microservices, IoT data processing, cloud platforms, and AI automation. I work with global clients on
-          high-impact projects, from startups to enterprise systems.
-        </p>
-        <br>
-        <a href="https://docs.google.com/document/d/1F35-atQ81smmCIzSMc-qOc97BpUxw782/view" target="_blank"
-          class="btn blue waves-effect waves-light">Download CV</a>
-        <a href="https://medium.com/@mandeepdhakal11" target="_blank" class="btn blue waves-effect waves-light">Read My Blogs!</a>
-      </section>
-
-      <!-- Expertise -->
-      <section id="expertise" class="section">
-        <h4 class="blue-text text-darken-2">Expertise</h4>
-        <div>
-          <span class="expertise-badge">Java & Spring Framework</span>
-          <span class="expertise-badge">Angular / React / Ionic</span>
-          <span class="expertise-badge">Microservices Architecture</span>
-          <span class="expertise-badge">AWS, GCP, Azure</span>
-          <span class="expertise-badge">MQTT, SQL, NOSQL, InfluxDB</span>
-          <span class="expertise-badge">Kafka, Redis, AWS SQS</span>
-          <span class="expertise-badge">Grafana & Prometheus</span>
-          <span class="expertise-badge">Bash, Ansible, Terraform</span>
-          <span class="expertise-badge">Mobile App Development</span>
+    <!-- Top Navbar for Mobile -->
+    <nav class="blue hide-on-large-only">
+        <div class="nav-wrapper">
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <span class="brand-logo center">Hi There 👋</span>
         </div>
-      </section>
+    </nav>
 
-      <!-- Interests -->
-      <section id="interests" class="section">
-        <h4 class="blue-text text-darken-2">My Interests</h4>
-        <div class="row">
-          <div class="col s12 m3 center-align interest-item">
-            <i class="material-icons large blue-text">psychology</i>
-            <p><strong>Generative AI</strong></p>
-          </div>
-          <div class="col s12 m3 center-align interest-item">
-            <i class="material-icons large blue-text">code</i>
-            <p><strong>Software Development</strong></p>
-          </div>
-          <div class="col s12 m3 center-align interest-item">
-            <i class="material-icons large blue-text">devices</i>
-            <p><strong>Mobile/Web Apps</strong></p>
-          </div>
-          <div class="col s12 m3 center-align interest-item">
-            <i class="material-icons large blue-text">auto_awesome</i>
-            <p><strong>AI Automation</strong></p>
-          </div>
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+
+            <!-- About Me -->
+            <section id="about" class="section about-section">
+                <div class="about-container">
+
+                    <!-- LEFT SIDE: TEXT -->
+                    <div class="about-text">
+                        <h4 class="blue-text text-darken-2">About Me</h4>
+                        <p>
+                            Senior Software Engineer & Team Lead with proven expertise in architecting scalable,
+                            cloud-native
+                            applications, leading cross-functional teams, and delivering innovative solutions.
+                            Specialized in
+                            microservices, IoT data processing, cloud platforms, and AI automation. I work with global
+                            clients on
+                            high-impact projects, from startups to enterprise systems.
+                        </p>
+                        <br>
+                        <a href="https://docs.google.com/document/d/1F35-atQ81smmCIzSMc-qOc97BpUxw782/view"
+                            target="_blank" class="btn blue waves-effect waves-light">Download CV</a>
+                        <a href="https://medium.com/@mandeepdhakal11" target="_blank"
+                            class="btn blue waves-effect waves-light">Read My Blogs!</a>
+                    </div>
+
+                    <!-- RIGHT SIDE: IMAGE -->
+                    <div class="about-image">
+                        <img src="Portfolio/assets/images/about.jpeg" alt="Cover Photo">
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- Expertise -->
+            <section id="expertise" class="section">
+                <h4 class="blue-text text-darken-2">Expertise</h4>
+                <div>
+                    <span class="expertise-badge">Java & Spring Framework</span>
+                    <span class="expertise-badge">Angular / React / Ionic</span>
+                    <span class="expertise-badge">Microservices Architecture</span>
+                    <span class="expertise-badge">AWS, GCP, Azure</span>
+                    <span class="expertise-badge">MQTT, SQL, NOSQL, InfluxDB</span>
+                    <span class="expertise-badge">Kafka, Redis, AWS SQS</span>
+                    <span class="expertise-badge">Grafana & Prometheus</span>
+                    <span class="expertise-badge">Bash, Ansible, Terraform</span>
+                    <span class="expertise-badge">Mobile App Development</span>
+                </div>
+            </section>
+
+            <!-- Interests -->
+            <section id="interests" class="section">
+                <h4 class="blue-text text-darken-2">My Interests</h4>
+                <div class="row">
+                    <div class="col s12 m3 center-align interest-item">
+                        <i class="material-icons large blue-text">psychology</i>
+                        <p><strong>Generative AI</strong></p>
+                    </div>
+                    <div class="col s12 m3 center-align interest-item">
+                        <i class="material-icons large blue-text">code</i>
+                        <p><strong>Software Development</strong></p>
+                    </div>
+                    <div class="col s12 m3 center-align interest-item">
+                        <i class="material-icons large blue-text">devices</i>
+                        <p><strong>Mobile/Web Apps</strong></p>
+                    </div>
+                    <div class="col s12 m3 center-align interest-item">
+                        <i class="material-icons large blue-text">auto_awesome</i>
+                        <p><strong>AI Automation</strong></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Work Experience -->
+            <section id="experience" class="section">
+                <h4 class="blue-text text-darken-2">Professional Experience</h4>
+                <div class="row">
+                    <div class="col s12 m6 l4">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">Hydroneo Smart Aquaculture</span>
+                                <p class="grey-text"><b>Bangkok, Thailand</b></p>
+                                <p class="grey-text">Senior Software Engineer, Team Lead (Apr 2025 – Present)</p>
+                                <ul>
+                                    <li>Architected microservices from monolithic apps.</li>
+                                    <li>Managed IoT data with Kafka & InfluxDB.</li>
+                                    <li>Led backend team and ensured delivery quality.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 l4">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">Convergestack Pvt. Ltd.</span>
+                                <p class="grey-text"><b>Kathmandu, Nepal</b></p>
+                                <p class="grey-text">Software Engineer (2022 – 2025)</p>
+                                <ul>
+                                    <li>Developed REST APIs with Spring & Java.</li>
+                                    <li>Built Angular, React, and Ionic frontends.</li>
+                                    <li>Deployed on AWS, Redis caching & AWS SQS.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 l4">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">Laconic Cloud ERP</span>
+                                <p class="grey-text"><b>Bangkok, Thailand</b></p>
+                                <p class="grey-text">R&D Specialist / Senior Software Engineer (2022 – 2023)</p>
+                                <ul>
+                                    <li>Designed & implemented REST APIs in Spring.</li>
+                                    <li>Integrated AWS services for storage.</li>
+                                    <li>Guided frontend team & client demos.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certifications -->
+            <section id="certifications" class="section">
+                <h4 class="blue-text text-darken-2">Certifications</h4>
+                <div class="row">
+                    <div class="col s12 m6 l4">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">Project: Deep Agents with LangGraph</span>
+                                <p class="grey-text"><b>LangChain Academy</b></p>
+                                <ul>
+                                    <li>Learned how to use LangGraph to build a multi-agent system, then use LangSmith
+                                        to evaluate its performance.</li>
+                                </ul>
+                            </div>
+                            <div class="card-action">
+                                <a href="https://academy.langchain.com/certificates/oopklozmij" target="_blank">View
+                                    Certificate</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 l4">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">Project: Deep Research with LangGraph</span>
+                                <p class="grey-text"><b>LangChain Academy</b></p>
+                                <ul>
+                                    <li>Fundamental characteristics of Deep Agents and how to implement your own Deep
+                                        Agent for complex, long-running tasks.</li>
+                                </ul>
+                            </div>
+                            <div class="card-action">
+                                <a href="https://academy.langchain.com/certificates/7fch0apf8m" target="_blank">View
+                                    Certificate</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 l4">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">Building Ambient Agents with LangGraph</span>
+                                <p class="grey-text"><b>LangChain Academy</b></p>
+                                <ul>
+                                    <li>Fundamentals of LangGraph as you build an email assistant from scratch, and use
+                                        LangSmith to evaluate its performance.</li>
+                                </ul>
+                            </div>
+                            <div class="card-action">
+                                <a href="https://academy.langchain.com/certificates/baahmvhrsn" target="_blank">View
+                                    Certificate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section id="projects" class="section">
+                <h4 class="blue-text text-darken-2">Projects</h4>
+                <div class="row">
+                    <div class="col s12 m6">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">GPT Fine Tuning</span>
+                                <p>Fine-tuning a pre-trained OpenAI model to classify news articles into categories like
+                                    Business, Tech,
+                                    Politics, Sport, and Entertainment.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="https://github.com/mandeep111/openai-fine-tuning" target="_blank">View on
+                                    GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">LangChain RAG App</span>
+                                <p>An AI-powered retrieval-augmented generation system using LangChain, enabling
+                                    domain-specific
+                                    contextual responses and intelligent document querying.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="https://github.com/mandeep111/langchain-rag-app" target="_blank">View on
+                                    GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col s12 m6">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">Workflow Engine</span>
+                                <p>A workflow automation platform like n8n that routes documents across departments.
+                                    Supports approval,
+                                    rejection, rollback, and hash verification for document integrity.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="https://github.com/mandeep111/workflow-management" target="_blank">View on
+                                    GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m6">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">ClickUp-Like Project Management</span>
+                                <p>A project management backend inspired by ClickUp and Trello. Built using Java Spring
+                                    Boot and Oracle
+                                    DB, managing teams, tasks, and projects with JWT-based authentication.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="https://github.com/mandeep111/custom-jira" target="_blank">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12 m6">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">Biometric Attendance System</span>
+                                <p>Attendance system using biometric or facial recognition with LINE Messaging
+                                    integration. Notifies
+                                    parents in real-time about student check-ins and check-outs.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="https://github.com/mandeep111/line-webhook-example" target="_blank">View on
+                                    GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m6">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">Upwork Clone API</span>
+                                <p>A minimal Upwork clone where users can post jobs, hire freelancers, and chat in real
+                                    time using
+                                    Supabase. Built with Java Spring Boot, Oracle, and Next.js.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="https://github.com/mandeep111/fastwork-api" target="_blank">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12 m6">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">Cambridge Education</span>
+                                <p>Business website for Cambridge Education, Birtamod. A responsive and professional
+                                    online presence
+                                    highlighting courses, programs, and contact details.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="https://cambridgebirtamod.com/" target="_blank">Visit Website</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <span class="card-title">Spring Boot gRPC</span>
+                                <p>This project demonstrates a modular microservice setup built with Spring Boot and
+                                    gRPC.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="https://github.com/mandeep111/grpc_demo" target="_blank">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </section>
+
         </div>
-      </section>
+    </main>
 
-      <!-- Work Experience -->
-      <section id="experience" class="section">
-        <h4 class="blue-text text-darken-2">Professional Experience</h4>
-        <div class="row">
-          <div class="col s12 m6 l4">
-            <div class="card hoverable">
-              <div class="card-content">
-                <span class="card-title">Hydroneo Smart Aquaculture</span>
-                <p class="grey-text"><b>Bangkok, Thailand</b></p>
-                <p class="grey-text">Senior Software Engineer, Team Lead (Apr 2025 – Present)</p>
-                <ul>
-                  <li>Architected microservices from monolithic apps.</li>
-                  <li>Managed IoT data with Kafka & InfluxDB.</li>
-                  <li>Led backend team and ensured delivery quality.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l4">
-            <div class="card hoverable">
-              <div class="card-content">
-                <span class="card-title">Convergestack Pvt. Ltd.</span>
-                <p class="grey-text"><b>Kathmandu, Nepal</b></p>
-                <p class="grey-text">Software Engineer (2022 – 2025)</p>
-                <ul>
-                  <li>Developed REST APIs with Spring & Java.</li>
-                  <li>Built Angular, React, and Ionic frontends.</li>
-                  <li>Deployed on AWS, Redis caching & AWS SQS.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l4">
-            <div class="card hoverable">
-              <div class="card-content">
-                <span class="card-title">Laconic Cloud ERP</span>
-                <p class="grey-text"><b>Bangkok, Thailand</b></p>
-                <p class="grey-text">R&D Specialist / Senior Software Engineer (2022 – 2023)</p>
-                <ul>
-                  <li>Designed & implemented REST APIs in Spring.</li>
-                  <li>Integrated AWS services for storage.</li>
-                  <li>Guided frontend team & client demos.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <!-- Footer -->
+    <footer class="center-align">
+        <p>© <span id="year"></span> Mandip Raj Dhakal | Crafted with passion and code</p>
+    </footer>
 
-      <!-- Certifications -->
-      <section id="certifications" class="section">
-        <h4 class="blue-text text-darken-2">Certifications</h4>
-        <div class="row">
-          <div class="col s12 m6 l4">
-            <div class="card hoverable">
-              <div class="card-content">
-                <span class="card-title">Project: Deep Agents with LangGraph</span>
-                <p class="grey-text"><b>LangChain Academy</b></p>
-                <ul>
-                  <li>Learned how to use LangGraph to build a multi-agent system, then use LangSmith to evaluate its performance.</li>
-                </ul>
-              </div>
-              <div class="card-action">
-                <a href="https://academy.langchain.com/certificates/oopklozmij" target="_blank">View Certificate</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l4">
-            <div class="card hoverable">
-              <div class="card-content">
-                <span class="card-title">Project: Deep Research with LangGraph</span>
-                <p class="grey-text"><b>LangChain Academy</b></p>
-                <ul>
-                  <li>Fundamental characteristics of Deep Agents and how to implement your own Deep Agent for complex, long-running tasks.</li>
-                </ul>
-              </div>
-              <div class="card-action">
-                <a href="https://academy.langchain.com/certificates/7fch0apf8m" target="_blank">View Certificate</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l4">
-            <div class="card hoverable">
-              <div class="card-content">
-                <span class="card-title">Building Ambient Agents with LangGraph</span>
-                <p class="grey-text"><b>LangChain Academy</b></p>
-                <ul>
-                  <li>Fundamentals of LangGraph as you build an email assistant from scratch, and use LangSmith to evaluate its performance.</li>
-                </ul>
-              </div>
-              <div class="card-action">
-                <a href="https://academy.langchain.com/certificates/baahmvhrsn" target="_blank">View Certificate</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize sidenav
+            var elems = document.querySelectorAll('.sidenav');
+            M.Sidenav.init(elems);
 
-      <!-- Projects -->
-      <section id="projects" class="section">
-        <h4 class="blue-text text-darken-2">Projects</h4>
+            // Set current year
+            document.getElementById('year').textContent = new Date().getFullYear();
 
-        <div class="row">
-          <div class="col s12 m6">
-            <div class="card hoverable">
-              <div class="card-content">
-                <span class="card-title">Workflow Engine</span>
-                <p>A workflow automation platform like n8n that routes documents across departments. Supports approval,
-                  rejection, rollback, and hash verification for document integrity.</p>
-              </div>
-              <div class="card-action">
-                <a href="https://github.com/mandeep111/workflow-management" target="_blank">View on GitHub</a>
-              </div>
-            </div>
-          </div>
+            // Create animated particles
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
 
-          <div class="col s12 m6">
-            <div class="card hoverable">
-              <div class="card-content">
-                <span class="card-title">ClickUp-Like Project Management</span>
-                <p>A project management backend inspired by ClickUp and Trello. Built using Java Spring Boot and Oracle
-                  DB, managing teams, tasks, and projects with JWT-based authentication.</p>
-              </div>
-              <div class="card-action">
-                <a href="https://github.com/mandeep111/custom-jira" target="_blank">View on GitHub</a>
-              </div>
-            </div>
-          </div>
-        </div>
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
 
-        <div class="row">
-          <div class="col s12 m6">
-            <div class="card hoverable">
-              <div class="card-content">
-                <span class="card-title">Biometric Attendance System</span>
-                <p>Attendance system using biometric or facial recognition with LINE Messaging integration. Notifies
-                  parents in real-time about student check-ins and check-outs.</p>
-              </div>
-              <div class="card-action">
-                <a href="https://github.com/mandeep111/line-webhook-example" target="_blank">View on GitHub</a>
-              </div>
-            </div>
-          </div>
+                const size = Math.random() * 6 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                particle.style.animationDelay = Math.random() * 5 + 's';
 
-          <div class="col s12 m6">
-            <div class="card hoverable">
-              <div class="card-content">
-                <span class="card-title">Upwork Clone API</span>
-                <p>A minimal Upwork clone where users can post jobs, hire freelancers, and chat in real time using
-                  Supabase. Built with Java Spring Boot, Oracle, and Next.js.</p>
-              </div>
-              <div class="card-action">
-                <a href="https://github.com/mandeep111/fastwork-api" target="_blank">View on GitHub</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s12 m6">
-            <div class="card hoverable">
-              <div class="card-content">
-                <span class="card-title">Cambridge Education</span>
-                <p>Business website for Cambridge Education, Birtamod. A responsive and professional online presence
-                  highlighting courses, programs, and contact details.</p>
-              </div>
-              <div class="card-action">
-                <a href="https://cambridgebirtamod.com/" target="_blank">Visit Website</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m6">
-            <div class="card hoverable">
-              <div class="card-content">
-                <span class="card-title">LangChain RAG App</span>
-                <p>An AI-powered retrieval-augmented generation system using LangChain, enabling domain-specific
-                  contextual responses and intelligent document querying.</p>
-              </div>
-              <div class="card-action">
-                <a href="https://github.com/mandeep111/langchain-rag-app" target="_blank">View on GitHub</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s12 m6">
-            <div class="card hoverable">
-              <div class="card-content">
-                <span class="card-title">GPT Fine Tuning</span>
-                <p>Fine-tuning a pre-trained OpenAI model to classify news articles into categories like Business, Tech,
-                  Politics, Sport, and Entertainment.</p>
-              </div>
-              <div class="card-action">
-                <a href="https://github.com/mandeep111/openai-fine-tuning" target="_blank">View on GitHub</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m6">
-            <div class="card hoverable">
-              <div class="card-content">
-                <span class="card-title">Spring Boot gRPC</span>
-                <p>This project demonstrates a modular microservice setup built with Spring Boot and gRPC.</p>
-              </div>
-              <div class="card-action">
-                <a href="https://github.com/mandeep111/grpc_demo" target="_blank">View on GitHub</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="center-align">
-    <p>© <span id="year"></span> Mandip Raj Dhakal | Crafted with passion and code</p>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Initialize sidenav
-      var elems = document.querySelectorAll('.sidenav');
-      M.Sidenav.init(elems);
-      
-      // Set current year
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      // Create animated particles
-      const particlesContainer = document.getElementById('particles');
-      const particleCount = 50;
-
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        
-        const size = Math.random() * 6 + 2;
-        particle.style.width = size + 'px';
-        particle.style.height = size + 'px';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
-        particle.style.animationDelay = Math.random() * 5 + 's';
-        
-        particlesContainer.appendChild(particle);
-      }
-
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          const href = this.getAttribute('href');
-          if (href !== '#' && href !== '#!') {
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-              target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-              });
-              
-              // Close sidenav on mobile after clicking
-              const sidenav = document.querySelector('.sidenav');
-              const instance = M.Sidenav.getInstance(sidenav);
-              if (instance && window.innerWidth < 993) {
-                instance.close();
-              }
+                particlesContainer.appendChild(particle);
             }
-          }
-        });
-      });
 
-      // Intersection Observer for scroll animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && href !== '#!') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, observerOptions);
-
-      // Observe all cards
-      document.querySelectorAll('.card').forEach(card => {
-        card.classList.add('fade-in');
-        observer.observe(card);
-      });
-
-      // Add ripple effect to expertise badges
-      document.querySelectorAll('.expertise-badge').forEach(badge => {
-        badge.addEventListener('click', function(e) {
-          const ripple = document.createElement('span');
-          const rect = this.getBoundingClientRect();
-          const size = Math.max(rect.width, rect.height);
-          const x = e.clientX - rect.left - size / 2;
-          const y = e.clientY - rect.top - size / 2;
-          
-          ripple.style.width = ripple.style.height = size + 'px';
-          ripple.style.left = x + 'px';
-          ripple.style.top = y + 'px';
-          ripple.classList.add('ripple-effect');
-          
-          this.appendChild(ripple);
-          
-          setTimeout(() => ripple.remove(), 600);
-        });
-      });
-
-      // Parallax effect for sections on scroll
-      let ticking = false;
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            const scrolled = window.pageYOffset;
-            const sections = document.querySelectorAll('.section');
-            
-            sections.forEach((section, index) => {
-              const speed = 0.1 + (index * 0.02);
-              const yPos = -(scrolled * speed);
-              section.style.transform = `translateY(${yPos}px)`;
+                            // Close sidenav on mobile after clicking
+                            const sidenav = document.querySelector('.sidenav');
+                            const instance = M.Sidenav.getInstance(sidenav);
+                            if (instance && window.innerWidth < 993) {
+                                instance.close();
+                            }
+                        }
+                    }
+                });
             });
-            
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
 
-      // Add hover effect to profile picture
-      const profilePic = document.querySelector('.profile-pic');
-      if (profilePic) {
-        profilePic.addEventListener('mouseenter', function() {
-          this.style.animationPlayState = 'paused';
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all cards
+            document.querySelectorAll('.card').forEach(card => {
+                card.classList.add('fade-in');
+                observer.observe(card);
+            });
+
+            // Add ripple effect to expertise badges
+            document.querySelectorAll('.expertise-badge').forEach(badge => {
+                badge.addEventListener('click', function (e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple-effect');
+
+                    this.appendChild(ripple);
+
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+
+            // Parallax effect for sections on scroll
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        const scrolled = window.pageYOffset;
+                        const sections = document.querySelectorAll('.section');
+
+                        sections.forEach((section, index) => {
+                            const speed = 0.1 + (index * 0.02);
+                            const yPos = -(scrolled * speed);
+                            section.style.transform = `translateY(${yPos}px)`;
+                        });
+
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+
+            // Add hover effect to profile picture
+            const profilePic = document.querySelector('.profile-pic');
+            if (profilePic) {
+                profilePic.addEventListener('mouseenter', function () {
+                    this.style.animationPlayState = 'paused';
+                });
+
+                profilePic.addEventListener('mouseleave', function () {
+                    this.style.animationPlayState = 'running';
+                });
+            }
+
+            // Typing effect for brand logo (mobile)
+            const brandLogo = document.querySelector('.brand-logo');
+            if (brandLogo && window.innerWidth < 993) {
+                const text = 'Hi There 👋';
+                let index = 0;
+                brandLogo.textContent = '';
+
+                function typeText() {
+                    if (index < text.length) {
+                        brandLogo.textContent += text.charAt(index);
+                        index++;
+                        setTimeout(typeText, 100);
+                    }
+                }
+
+                setTimeout(typeText, 500);
+            }
+
+            // Add stagger animation to cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            // Interest items rotation animation
+            const interestItems = document.querySelectorAll('.interest-item');
+            interestItems.forEach(item => {
+                item.addEventListener('mouseenter', function () {
+                    const icon = this.querySelector('i');
+                    icon.style.transform = 'rotateY(360deg) scale(1.2)';
+                });
+
+                item.addEventListener('mouseleave', function () {
+                    const icon = this.querySelector('i');
+                    icon.style.transform = 'rotateY(0deg) scale(1)';
+                });
+            });
+
+            // Add counter animation for numbers in content
+            const animateValue = (element, start, end, duration) => {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    element.textContent = Math.floor(progress * (end - start) + start);
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            };
+
+            // Button hover effects with wave animation
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('mouseenter', function (e) {
+                    const x = e.clientX - e.target.offsetLeft;
+                    const y = e.clientY - e.target.offsetTop;
+
+                    const ripple = document.createElement('span');
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+
+                    this.appendChild(ripple);
+
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Add active state to navigation items
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.sidenav a[href^="#"]');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
         });
-        
-        profilePic.addEventListener('mouseleave', function() {
-          this.style.animationPlayState = 'running';
-        });
-      }
 
-      // Typing effect for brand logo (mobile)
-      const brandLogo = document.querySelector('.brand-logo');
-      if (brandLogo && window.innerWidth < 993) {
-        const text = 'Hi There 👋';
-        let index = 0;
-        brandLogo.textContent = '';
-        
-        function typeText() {
-          if (index < text.length) {
-            brandLogo.textContent += text.charAt(index);
-            index++;
-            setTimeout(typeText, 100);
-          }
-        }
-        
-        setTimeout(typeText, 500);
-      }
-
-      // Add stagger animation to cards
-      const cards = document.querySelectorAll('.card');
-      cards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.1}s`;
-      });
-
-      // Interest items rotation animation
-      const interestItems = document.querySelectorAll('.interest-item');
-      interestItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-          const icon = this.querySelector('i');
-          icon.style.transform = 'rotateY(360deg) scale(1.2)';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-          const icon = this.querySelector('i');
-          icon.style.transform = 'rotateY(0deg) scale(1)';
-        });
-      });
-
-      // Add counter animation for numbers in content
-      const animateValue = (element, start, end, duration) => {
-        let startTimestamp = null;
-        const step = (timestamp) => {
-          if (!startTimestamp) startTimestamp = timestamp;
-          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-          element.textContent = Math.floor(progress * (end - start) + start);
-          if (progress < 1) {
-            window.requestAnimationFrame(step);
-          }
-        };
-        window.requestAnimationFrame(step);
-      };
-
-      // Button hover effects with wave animation
-      const buttons = document.querySelectorAll('.btn');
-      buttons.forEach(btn => {
-        btn.addEventListener('mouseenter', function(e) {
-          const x = e.clientX - e.target.offsetLeft;
-          const y = e.clientY - e.target.offsetTop;
-          
-          const ripple = document.createElement('span');
-          ripple.style.left = x + 'px';
-          ripple.style.top = y + 'px';
-          
-          this.appendChild(ripple);
-          
-          setTimeout(() => {
-            ripple.remove();
-          }, 600);
-        });
-      });
-
-      // Add active state to navigation items
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.sidenav a[href^="#"]');
-
-      window.addEventListener('scroll', () => {
-        let current = '';
-        
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.clientHeight;
-          if (pageYOffset >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-          }
-        });
-
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-          }
-        });
-      });
-    });
-
-    // Add CSS for ripple effect dynamically
-    const style = document.createElement('style');
-    style.textContent = `
+        // Add CSS for ripple effect dynamically
+        const style = document.createElement('style');
+        style.textContent = `
       .ripple-effect {
         position: absolute;
         border-radius: 50%;
@@ -1031,8 +1154,8 @@
         font-weight: 600;
       }
     `;
-    document.head.appendChild(style);
-  </script>
+        document.head.appendChild(style);
+    </script>
 </body>
 
 </html>
